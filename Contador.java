@@ -1,26 +1,24 @@
 import java.util.Scanner;
 
-class Main {
-  public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Introduce una palabra en minúsculas sin símbolos, caracteres especiales, acentos, ni números:");
-    String palabra = scanner.nextLine();
+public class ContarVocalesConsonantes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String palabra;
+        int vocales = 0, consonantes = 0;
 
-    int vcount = 0;
-    int ccount = 0;
+        System.out.print("Ingrese una palabra: ");
+        palabra = scanner.nextLine();
 
-    palabra = palabra.toLowerCase();
+        for (int i = 0; i < palabra.length(); i++) {
+            char letra = palabra.charAt(i);
+            if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u') {
+                vocales++;
+            } else {
+                consonantes++;
+            }
+        }
 
-    for (int i = 0; i < palabra.length(); i++) {
-      char ch = palabra.charAt(i);
-      if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
-        vcount++;
-      } else if ((ch >= 'a' && ch <= 'z')) {
-        ccount++;
-      }
+        System.out.println("Vocales: " + vocales);
+        System.out.println("Consonantes: " + consonantes);
     }
-
-    System.out.println("Número de vocales: " + vcount);
-    System.out.println("Número de consonantes: " + ccount);
-  }
 }
